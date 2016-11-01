@@ -1,0 +1,7 @@
+[submodule "promisejs"]
+	path = promisejs
+	url = https://github.com/stackp/promisejs.git
+[submodule "texlive"]
+	path = texlive
+	url = https://github.com/manuels/texlive.js.git
+	branch = master
