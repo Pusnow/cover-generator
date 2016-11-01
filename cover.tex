@@ -1,0 +1,39 @@
+
+% Jonathan Ward
+\documentclass[11pt]{article} 
+
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,277mm},
+ left=20mm,
+ top=10mm,
+ }
+\pagestyle{empty}
+
+
+\newcommand*{\titleGM}[3]{ % Create the command for including the title page in the document
+\hbox{ % Horizontal box
+\hspace*{0.2\textwidth} % Whitespace to the left of the title page
+\rule{1pt}{\textheight} % Vertical line
+\hspace*{0.05\textwidth} % Whitespace between the vertical line and title page text
+\parbox[b]{0.75\textwidth}{ % Paragraph box which restricts text to less than the width of the page
+{\noindent\Huge\bfseries  #1 \\}\\[2\baselineskip] % Title
+{\large \textbf{Date:} #3 } \\
+{\large \textbf{Lecture:} #2 } 
+\\[4\baselineskip] % Tagline or further description
+\vspace{0.5\textheight} % Whitespace between the title block and the publisher
+
+{\large \textit{\textbf{Name:} <% name %> \ \ \ \ \textbf{Student ID:} <% studentid %>\\  \ \ \ \ \textbf{Major:} <% major %> }}\\[1\baselineskip]
+{\noindent <% university %> }\\[\baselineskip]}
+}
+}
+
+
+\begin{document}
+\titleGM{<% projectname %>}{<% lecturename %>}{<% date %>}
+
+
+
+\end{document}
