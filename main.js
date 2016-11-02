@@ -13,18 +13,20 @@ function download(filename, text) {
 
 
 
+$("#mainfrm").on("submit",function(e){
+  e.preventDefault();
+  $.get("./cover.tex", {}, function (tex) {
 
-$.get("./cover.tex", {}, function (tex) {
-  console.log("ds");
+    var document = tex + "\\begin{document}\n";
+    var inputs = $('#mainfrm :input');
+    document += "\\titleGM{" + [inputs[4].value, inputs[5].value, inputs[6].value, inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value].join("}{")
+    document += "}\n\\end{document}"
 
-  var document = tex + "\\begin{document}\n";
-  document += "\\titleGM{" + ["Project 1", "Control Engineering", "2016.11.9", "Wonsup Yoon", "2013142157", "Electrical \\& Electronic Engineering", "Yonsei University"].join("}{")
-  document += "}\n\\end{document}"
+    var pdftex = new PDFTeX("texlive/pdftex-worker.js");
 
-  var pdftex = new PDFTeX("texlive/pdftex-worker.js");
-
-  pdftex.compile(document).then(function (pdf) { download("cover.pdf", pdf); });
-  console.log(document)
-}
+    pdftex.compile(document).then(function (pdf) { download("cover.pdf", pdf); });
+  }
+  );
+  }
 );
 
