@@ -100,3 +100,10 @@
 {
     background: #109177;
 }
+
+.form-style-5 input[type="submit"]:disabled,
+.form-style-5 input[type="button"]:disabled
+{
+    background: #62e9cf;
+    border: 1px solid #62e9cf;
+}

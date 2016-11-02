@@ -15,6 +15,8 @@ function download(filename, text) {
 
 $("#mainfrm").on("submit",function(e){
   e.preventDefault();
+  $("#genbtn").prop("disabled",true);
+  $("#genbtn").val("Please wait");
   $.get("./cover.tex", {}, function (tex) {
 
     var document = tex + "\\begin{document}\n";
