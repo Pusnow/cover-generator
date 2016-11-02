@@ -16,29 +16,15 @@ function download(filename, text) {
 
 $.get("./cover.tex", {}, function (tex) {
   console.log("ds");
-  var template = Hogan.compile(tex, { delimiters: '<% %>' });
-  var result = template.render(
-    {
-      "name": "Wonsup Yoon",
-      "major": "Electrical Electronic Engineering",
-      "studentid": "2013142157",
-      "university": "Yonsei University",
-      "projectname": "Project 1",
-      "lecturename": "Control Engineering",
-      "date": "2016.11.9"
 
-    }
-
-
-  );
-
-
-
+  var document = tex + "\\begin{document}\n";
+  document += "\\titleGM{" + ["Project 1", "Control Engineering", "2016.11.9", "Wonsup Yoon", "2013142157", "Electrical \\& Electronic Engineering", "Yonsei University"].join("}{")
+  document += "}\n\\end{document}"
 
   var pdftex = new PDFTeX("texlive/pdftex-worker.js");
 
-  //pdftex.compile(result).then(function (pdf) { download("cover.pdf", pdf); });
-  console.log(result)
+  pdftex.compile(document).then(function (pdf) { download("cover.pdf", pdf); });
+  console.log(document)
 }
 );
 
