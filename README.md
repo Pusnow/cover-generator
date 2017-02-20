@@ -1,7 +1,7 @@
 # cover-generator
 Homework cover generator
 
-http://www.pusnow.com/cover-generator/
+https://pusnow.github.io/cover-generator/
 
 * Texlive.js: https://github.com/manuels/texlive.js 
 * LaTex desgin: https://www.overleaf.com/latex/examples/capa-do-trabalho/fqhyhmkvzwxb#.WBoJpXc6-Cc
